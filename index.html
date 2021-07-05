@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beeline</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="/js/jquery-3.1.1.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script src="/js/jquery.validate.min.js"></script> 
     <script>
       $(document).ready(function(){
         $("#big-form").validate({
           rules: {
             name: 'required',
-            phone: 'required',
+            phone: {
+              required: true,
+              minlength: 10},
             adress: 'required'
           },
           messages: {
             name: 'Введите имя',
-            phone: 'Введите номер телефона',
+            phone: {
+              required: 'Введите номер телефона',
+              minlength: 'Номер должне содержать не меньше 10 символов'},
             adress: 'Введите Ваш адрес'
           }
-        });
+        });//end big-form
       });
     </script>
 </head>
@@ -35,7 +40,6 @@
     <div class="headline">
         <h1>Домашний интернет Билайн</h1>
     </div>
-    <div></div>
     <div class="top-box">
         <div class="box">
             <div class="heading-box">
@@ -92,21 +96,24 @@
             </div>
         </div>
     </div>
-    <div></div>
 
   <form id="big-form" name="big-form" method="POST" action="">
     <div class="big-form__body">
       <p>Оставьте заявку на подключение онлайн</p>
+      <p class="min">Оставьте Ваш номер телефоа и наши специалисты свяжутся с Вами в течении 10 минут</p>
     <div>
     <input type="text" class="username" name="name" id="username"  placeholder="Имя">
     </div>
     <div>
-    <input  type="text" class="phone required" name="phone" id="phone" placeholder="Ваш номер телефона" >
+    <input  type="text" class="phone" name="phone" id="phone" placeholder="Ваш номер телефона" >
     </div>
     <div>
-    <input type="text" class="adress required" name="adress" id="adress" placeholder="Ваш адрес">
+    <input type="text" class="adress" name="adress" id="adress" placeholder="Ваш адрес">
     </div>
     <input type="submit" class="button" id="button">
+    <div class="policy-text">
+      <p>Нажимая кнопку Отправить, Вы принимаете Политику конфиденциальности и даёте согласие на обработку Ваших персональных данных</p>
+    </div>
     </div>
   </form>
     
