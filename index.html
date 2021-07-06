@@ -11,6 +11,12 @@
     <script src="/js/jquery.validate.min.js"></script> 
     <script>
       $(document).ready(function(){
+        $('.box a').click(function(){
+          $('.modal').addClass('modal_active');
+        });
+        $('.modal__close-button').click(function(){
+          $('.modal').removeClass('modal_active');
+        });
         $("#big-form").validate({
           rules: {
             name: 'required',
@@ -110,13 +116,23 @@
     <div>
     <input type="text" class="adress" name="adress" id="adress" placeholder="Ваш адрес">
     </div>
+    <div>
     <input type="submit" class="button" id="button">
+    </div>
     <div class="policy-text">
       <p>Нажимая кнопку Отправить, Вы принимаете Политику конфиденциальности и даёте согласие на обработку Ваших персональных данных</p>
     </div>
     </div>
   </form>
-    
+  <button id="callback-button" class="header__button">Обратный звонок</button>
+  <div class="modal">
+    <div class="modal__content">
+      <button class="modal__close-button">х</button>
+      <h1 class="modal__title">Контент для примера</h1>
+      <p class="modal__descruption">Контент для примера</p>
+    </div>
+  </div>
+
 </body>
 
 </html>
